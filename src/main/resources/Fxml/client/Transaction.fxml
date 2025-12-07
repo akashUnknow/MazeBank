@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.akash.mazebank.Controller.Client.TransactionController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="transaction_container"
+            stylesheets="@../../Styles/Transaction.css" xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.akash.mazebank.Controller.Client.TransactionController">
+    <Text layoutX="396.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction"
+          AnchorPane.leftAnchor="396.0" AnchorPane.topAnchor="14.0"/>
+    <ListView fx:id="transaction_listview" layoutX="-1.0" layoutY="93.0" prefHeight="640.0" prefWidth="830.0"
+              AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="100.0"/>
 </AnchorPane>

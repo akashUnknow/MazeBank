@@ -1,5 +1,7 @@
 package org.akash.mazebank.views;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -10,8 +12,17 @@ import java.io.IOException;
 
 public class ViewFactory {
     //client views
+    private final StringProperty clientSlectedmenuIteam;
     private AnchorPane dashboardView;
-    public  ViewFactory(){}
+    private AnchorPane transactionView;
+    public  ViewFactory(){
+        this.clientSlectedmenuIteam=new SimpleStringProperty("");
+    }
+
+    public StringProperty getClientSlectedmenuIteam() {
+        return clientSlectedmenuIteam;
+    }
+
     public AnchorPane getDashboardView(){
         if(dashboardView == null){
             try {
@@ -52,5 +63,16 @@ public class ViewFactory {
     }
     public void CloseStage(Stage stage){
         stage.close();
+    }
+
+    public AnchorPane getTransactionView() {
+        if(transactionView == null){
+            try {
+                transactionView = new FXMLLoader(getClass().getResource("/Fxml/client/Transaction.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return transactionView;
     }
 }

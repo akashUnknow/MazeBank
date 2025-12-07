@@ -2,6 +2,7 @@ package org.akash.mazebank.Controller.Client;
 
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import org.akash.mazebank.models.Model;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +17,19 @@ public class ClientMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        addListeners();
 
+    }
+    private void addListeners(){
+        dashBoard_btn.setOnAction(e->onDashboard());
+        transaction_btn.setOnAction(e->onTransaction());
+    }
+
+    private void onTransaction() {
+        Model.getInstance().getViewFactory().getClientSlectedmenuIteam().set("Transaction");
+    }
+
+    private void onDashboard() {
+        Model.getInstance().getViewFactory().getClientSlectedmenuIteam().set("Dashboard");
     }
 }
